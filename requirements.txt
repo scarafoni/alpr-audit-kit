@@ -1,0 +1,9 @@
+lxml
+pyarrow==26.0.0
+duckdb==2.0.0
+pandas==2.3.3
+# Needed only when inherited older binary packages conflict with NumPy 2:
+numexpr>=2.14.2
+bottleneck>=1.6.0
+# Independent extraction checks / fixture tests:
+openpyxl
