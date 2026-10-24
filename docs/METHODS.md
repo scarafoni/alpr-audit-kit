@@ -25,4 +25,6 @@ Use source workbook, sheet, and row references to seek associated policies, case
 
 ## Time and version handling
 
-The importer converts Excel date serials and preserves source field text. The analysis parses UTC timestamps explicitly. Some source files may have shifted columns or incomplete dates; inspect `layout_anomalies.csv` and coverage summaries. Revised exports with `(1)` in the filename are compared to earlier exports as multisets so repeated identical rows are retained. Reconciliation does not prove an agency export is complete.
+The importer converts Excel date serials and preserves source field text. The analysis parses UTC timestamps explicitly. Some source files may have shifted columns or incomplete dates; inspect `layout_anomalies.csv` and coverage summaries.
+
+Version handling is not yet generic. The analyzer's baseline selection excludes three original 2026 workbook filenames from the development dataset; it does not currently determine whether the matching revised `(1)` files are present. The 2026 reconciliation logic is likewise tied to those source export names. Before screening another release, review which files enter `base` and whether every old/revised pair is reconciled. Reconciliation does not prove an agency export is complete.

@@ -13,6 +13,10 @@ A local-first prototype for screening Flock Safety ALPR audit workbooks for reco
 
 Flags are leads for follow-up, not findings of misconduct. A keyword, blank field, high count, or network scope does not by itself establish an unauthorized search, a returned plate hit, disclosure, or a recipient. Read [the screening methods and limitations](docs/METHODS.md) before interpreting results.
 
+## Current limitations
+
+This analysis was adapted from one set of Prescott Flock releases. The importer recognizes standard Flock audit workbook families, but the analysis baseline still contains a rule tied to three original 2026 filenames from that dataset. It has not yet been generalized or validated for arbitrary agencies, years, or release/version combinations. Before using another city's records, inspect the imported coverage and reconciliation outputs and review the baseline selection in `scripts/alpr_analyze.py`. Treat results from another export set as provisional until that selection is generalized and checked.
+
 ## Privacy
 
 The scanner runs locally and contains no code to upload workbook contents. The results can still contain sensitive account, case, or plate-related information. Keep source workbooks and generated results off public repositories and shared drives unless they have been reviewed and safely redacted. The `.gitignore` blocks common workbook and output formats as a safeguard; do not rely on it instead of checking `git status` before publishing.
@@ -74,9 +78,10 @@ These directories are ignored by Git because their contents are derived from use
 
 ## Roadmap
 
-1. Plain-language records request and download guides.
-2. Workbook detection and a guided point-and-click interface.
-3. One-click local desktop releases, starting with Windows.
-4. Synthetic sample workbooks and usability review with nontechnical users.
+1. Generalize and validate workbook/version selection across agencies.
+2. Plain-language records request and download guides.
+3. Workbook detection and a guided point-and-click interface.
+4. One-click local desktop releases, starting with Windows.
+5. Synthetic sample workbooks and usability review with nontechnical users.
 
 Contributions to the prototype and its documentation are welcome. The software is MIT licensed; records and datasets supplied by users are not part of the license or distribution.
